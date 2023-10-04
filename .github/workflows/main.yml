@@ -1,4 +1,4 @@
-name: "pre-release"
+name: "latest-release"
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   pre-release:
-    name: "Pre Release"
+    name: "latest Release"
     runs-on: "nodejs"
 
     steps:
@@ -21,4 +21,4 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
           prerelease: true
-          title: "Development Build"
+          title: "latest"

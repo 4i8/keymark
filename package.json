@@ -19,8 +19,7 @@
   "scripts": {
     "test": "npm run build & jest",
     "prettier": "prettier --write . & prettier --check .",
-    "build": "rm -rf dist & tsup & prettier --write . &  prettier --check . & eslint ./ --fix --format=pretty",
-    "prepublishOnly": "npm run build & npm run prettier"
+    "build": "rm -rf dist & tsup & prettier --write . &  prettier --check . & eslint ./ --fix --format=pretty"
   },
   "keywords": [
     "string",

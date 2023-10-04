@@ -1,14 +1,14 @@
-name: "latest-release"
+name: "Release"
 
 on:
   push:
-    branches:
-      - "main"
+    tags:
+      - "v*"
 
 jobs:
-  pre-release:
-    name: "latest Release"
-    runs-on: "nodejs"
+  tagged-release:
+    name: "Release"
+    runs-on: "ubuntu-latest"
 
     steps:
       # ...
@@ -19,6 +19,4 @@ jobs:
       - uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
-          prerelease: true
-          title: "latest"
+          prerelease: false

@@ -11,16 +11,11 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-    defaults:
-       run:
-         working-directory: ./keymark/
     strategy:
       matrix:
         node-version: [14.x, 16.x, 18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
@@ -28,7 +23,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        cache-dependency-path: './keymark/package-lock.json'
-    - run: npm ci
+        cache-dependency-path: subdir/package-lock.json
     - run: npm i
     - run: npm test

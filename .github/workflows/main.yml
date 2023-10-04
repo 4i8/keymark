@@ -3,12 +3,12 @@ name: "pre-release"
 on:
   push:
     branches:
-      - "master"
+      - "main"
 
 jobs:
   pre-release:
     name: "Pre Release"
-    runs-on: "ubuntu-latest"
+    runs-on: "nodejs"
 
     steps:
       # ...

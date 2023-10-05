@@ -17,7 +17,9 @@
 **highlighting a specific key in a string**
 
 ## **Example**
+
 ###### **support ASCII escape😎**
+
 ```js
 const keymark = require("keymark");
 keymark("Random String ok", "ok");

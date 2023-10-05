@@ -19,7 +19,8 @@
   "scripts": {
     "test": "npm run build & jest",
     "prettier": "prettier --write . & prettier --check .",
-    "build": "rm -rf dist & tsup & prettier --write . &  prettier --check . & eslint ./ --fix --format=pretty"
+    "build": "rm -rf dist & tsup & prettier --write . &  prettier --check . & eslint ./ --fix --format=pretty",
+    "release": "release-it"
   },
   "keywords": [
     "string",
@@ -36,8 +37,6 @@
   "homepage": "https://github.com/4i8/clinei#readme",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@types/debug": "^4.1.9",
-    "@types/node": "^18.14.0",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^6.7.4",
     "debug": "^4.3.4",

@@ -2,7 +2,6 @@
 
 <div align="center">
 <br>
-<br>
   <p>
  <a href="https://www.npmjs.com/package/keymark"><img src="https://img.shields.io/npm/v/keymark.svg?style=for-the-badge" alt="NPM version" /></a>
  <a href="https://www.npmjs.com/package/keymark"><img src="https://img.shields.io/npm/dt/keymark.svg?maxAge=3600&style=for-the-badge" alt="NPM downloads" /></a>
@@ -17,21 +16,21 @@
 
 **highlighting a specific key in a string**
 
-## Example
-
+## **Example**
+###### **support ASCII escape😎**
 ```js
 const keymark = require("keymark");
 keymark("Random String ok", "ok");
 ```
 
-##### output:
+##### **output:**
 
 ```
 Random String ok
               ^^
 ```
 
-##### custom mark
+##### **custom mark**
 
 ```js
 const keymark = require("keymark");

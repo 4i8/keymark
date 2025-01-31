@@ -18,7 +18,7 @@
 
 ## **Example**
 
-###### **support ASCII escape😎**
+###### **support ASCII escape**
 
 ```js
 const keymark = require("keymark");

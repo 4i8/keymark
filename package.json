@@ -1,15 +1,15 @@
 {
   "name": "keymark",
   "author": "Arth",
-  "version": "0.1.2",
+  "version": "0.1.1",
   "description": "highlighting a specific key in a string",
   "types": "./index.d.ts",
   "main": "./dist/index.cjs.js",
-  "module": "./dist/index.esm",
+  "module": "./dist/index.esm.js",
   "exports": {
     ".": {
       "require": "./dist/index.cjs.js",
-      "import": "./dist/index.esm",
+      "import": "./dist/index.esm.js",
       "types": "./index.d.ts"
     }
   },

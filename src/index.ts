@@ -1,24 +1,31 @@
-function keymark(line: string, key: string, mark = "^") {
-  let currentIndex = 0;
-  let result = "";
+function keymark(line: string, key: string, mark = "^"): string {
+  // Remove ANSI escape sequences so that we know the visible characters.
+  const plainLine = line.replace(/\x1b\[[0-9;]+m/g, "");
+  if (!key) return line; // avoid infinite loop on empty key
+
+  // Create an array (one character per visible character)
+  const underlineArr: string[] = Array.from(
+    { length: plainLine.length },
+    () => " "
+  );
+
+  // Find every occurrence of 'key' in the plain text and mark them.
+  let startIndex = 0;
+  let found = false;
   while (true) {
-    const index = line.indexOf(key, currentIndex);
-    if (index === -1) {
-      break;
+    const index = plainLine.indexOf(key, startIndex);
+    if (index === -1) break;
+    found = true;
+    for (let i = index; i < index + key.length; i++) {
+      underlineArr[i] = mark;
     }
-    result += line.substring(currentIndex, index);
-    const escapeCodePattern = /\x1b\[[0-9;]*m/g;
-    const escapeCodes =
-      line.substring(index, index + key.length).match(escapeCodePattern) || [];
-    const formattedKey = escapeCodes.join("") + key + escapeCodes.join("");
-    result += formattedKey;
-    currentIndex = index + key.length;
+    startIndex = index + key.length;
   }
-  result += line.substring(currentIndex);
-  result +=
-    "\n" +
-    " ".repeat(line.replace(/\x1b\[[0-9;]+m/g, "").length - key.length) +
-    mark.repeat(key.length);
-  return result;
+
+  if (!found) return line;
+
+  const underline = "\n" + underlineArr.join("");
+  return line + underline;
 }
+
 export default keymark;
